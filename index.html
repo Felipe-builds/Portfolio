@@ -10,7 +10,7 @@
   <style>
 
     /* ============================================================
-       TOKENS
+       DESIGN TOKENS — edit colours here
     ============================================================ */
     :root {
       --bg:        #0B0F14;
@@ -34,10 +34,12 @@
       --nav-bg:    rgba(248, 249, 251, 0.85);
     }
 
+
     /* ============================================================
        RESET & BASE
     ============================================================ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     html { scroll-behavior: smooth; }
 
     body {
@@ -52,8 +54,9 @@
 
     a { color: inherit; text-decoration: none; }
 
+
     /* ============================================================
-       UTILITY
+       LAYOUT UTILITIES
     ============================================================ */
     .container {
       max-width: 1100px;
@@ -81,6 +84,7 @@
       line-height: 1.15;
       margin-bottom: 3rem;
     }
+
 
     /* ============================================================
        NAV
@@ -156,6 +160,7 @@
       border-color: var(--accent);
     }
 
+
     /* ============================================================
        HERO
     ============================================================ */
@@ -168,7 +173,7 @@
       overflow: hidden;
     }
 
-    /* Game-engine-style dot grid */
+    /* Game-engine dot grid background */
     .hero::before {
       content: '';
       position: absolute;
@@ -179,7 +184,7 @@
       pointer-events: none;
     }
 
-    /* Soft ambient glow */
+    /* Soft orange ambient glow */
     .hero::after {
       content: '';
       position: absolute;
@@ -254,6 +259,7 @@
       flex-wrap: wrap;
     }
 
+
     /* ============================================================
        BUTTONS
     ============================================================ */
@@ -296,8 +302,9 @@
       transform: translateY(-2px);
     }
 
+
     /* ============================================================
-       PROJECTS
+       PROJECT CARDS
     ============================================================ */
     .projects-grid {
       display: grid;
@@ -315,7 +322,7 @@
       overflow: hidden;
     }
 
-    /* Signature: left-border draws down on hover */
+    /* Left border draws down on hover — signature animation */
     .project-card::before {
       content: '';
       position: absolute;
@@ -395,6 +402,7 @@
 
     .project-link:hover { color: var(--accent); }
 
+
     /* ============================================================
        SKILLS
     ============================================================ */
@@ -435,6 +443,7 @@
       background: var(--accent);
       flex-shrink: 0;
     }
+
 
     /* ============================================================
        ABOUT
@@ -483,10 +492,12 @@
       line-height: 1.4;
     }
 
+
     /* ============================================================
        CONTACT
     ============================================================ */
     .contact-section { text-align: center; }
+
     .contact-section .section-title { margin-bottom: 0.875rem; }
 
     .contact-sub {
@@ -506,6 +517,7 @@
       flex-wrap: wrap;
     }
 
+
     /* ============================================================
        FOOTER
     ============================================================ */
@@ -521,6 +533,7 @@
       font-family: 'DM Mono', monospace;
     }
 
+
     /* ============================================================
        RESPONSIVE
     ============================================================ */
@@ -534,6 +547,7 @@
       .about-stats { grid-template-columns: 1fr 1fr; }
     }
 
+
     /* ============================================================
        REDUCED MOTION
     ============================================================ */
@@ -546,10 +560,15 @@
 </head>
 <body>
 
-  <!-- NAV -->
+
+  <!-- ============================================================
+       NAV
+  ============================================================ -->
   <nav>
     <div class="container nav-inner">
+
       <a href="#" class="nav-logo">Felipe<span>.</span>dev</a>
+
       <div class="nav-right">
         <ul class="nav-links">
           <li><a href="#projects">Projects</a></li>
@@ -559,89 +578,172 @@
         </ul>
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☀️</button>
       </div>
+
     </div>
   </nav>
 
-  <!-- HERO -->
+
+  <!-- ============================================================
+       HERO
+  ============================================================ -->
   <section class="hero" id="hero">
     <div class="container hero-content">
+
       <p class="hero-eyebrow">Games Developer</p>
-      <h1 class="hero-name">Felipe Costa<span class="cursor" aria-hidden="true"></span></h1>
-      <p class="hero-tagline">Building physics-driven, fast-feeling games in Godot 4. Based in Yorkshire — studying Games Development at Leeds City College.</p>
+
+      <h1 class="hero-name">
+        Felipe Costa<span class="cursor" aria-hidden="true"></span>
+      </h1>
+
+      <p class="hero-tagline">
+        Building physics-driven, fast-feeling games in Godot 4.
+        Based in Yorkshire — studying Games Development at Leeds City College.
+      </p>
+
       <div class="hero-ctas">
         <a href="#projects" class="btn btn-primary">See my work</a>
-        <a href="#contact" class="btn btn-outline">Get in touch</a>
+        <a href="#contact"  class="btn btn-outline">Get in touch</a>
       </div>
+
     </div>
   </section>
 
-  <!-- PROJECTS -->
+
+  <!-- ============================================================
+       PROJECTS
+       To add a new card: copy one full .project-card block,
+       paste it after the last one, and update the content.
+  ============================================================ -->
   <section class="section" id="projects">
     <div class="container">
+
       <span class="section-label">Work</span>
       <h2 class="section-title">Projects</h2>
+
       <div class="projects-grid">
 
+
+        <!-- PROJECT: Quake Live Remake -->
         <div class="project-card">
+
           <span class="project-type">Solo · FPS</span>
           <h3 class="project-name">Quake Live Remake</h3>
-          <p class="project-desc">A from-scratch single-player FPS in Godot 4 built to replicate the movement and feel of Quake Live — including bunny hopping, strafe-jumping, and surf ramp physics.</p>
+          <p class="project-desc">
+            A from-scratch single-player FPS in Godot 4 built to replicate the movement
+            and feel of Quake Live — including bunny hopping, strafe-jumping, and surf ramp physics.
+          </p>
+
           <div class="project-stack">
             <span class="stack-tag">Godot 4</span>
             <span class="stack-tag">GDScript</span>
             <span class="stack-tag">Physics Systems</span>
             <span class="stack-tag">FPS Design</span>
           </div>
+
           <div class="project-links">
             <a href="#" class="project-link">▶ Play</a>
             <a href="https://github.com/Felipe-builds" class="project-link" target="_blank" rel="noopener">⌥ Source</a>
           </div>
-        </div>
 
+        </div>
+        <!-- END PROJECT: Quake Live Remake -->
+
+
+        <!-- PROJECT: CS:S Movement Controller -->
         <div class="project-card">
+
           <span class="project-type">System · Movement</span>
           <h3 class="project-name">CS:S Movement Controller</h3>
-          <p class="project-desc">A technically precise recreation of Counter-Strike: Source movement in Godot 4 — wishdir acceleration, air-strafing, bunny hopping, and full surf ramp physics.</p>
+          <p class="project-desc">
+            A technically precise recreation of Counter-Strike: Source movement in Godot 4 —
+            wishdir acceleration, air-strafing, bunny hopping, and full surf ramp physics.
+          </p>
+
           <div class="project-stack">
             <span class="stack-tag">Godot 4</span>
             <span class="stack-tag">GDScript</span>
             <span class="stack-tag">Physics</span>
             <span class="stack-tag">Movement Tech</span>
           </div>
+
           <div class="project-links">
             <a href="https://github.com/Felipe-builds" class="project-link" target="_blank" rel="noopener">⌥ Source</a>
           </div>
-        </div>
 
+        </div>
+        <!-- END PROJECT: CS:S Movement Controller -->
+
+
+        <!-- PROJECT: Metal Wizard -->
         <div class="project-card">
+
           <span class="project-type">Game Jam</span>
-          <h3 class="project-name">METAL WIZARD</h3>
-          <p class="project-desc">A game jam entry built around the theme "Metal Wizard" - you play as a wizard in a post-apocalyptic wasteland, using telekinesis to fling scrap metal at enemies. Combines precise physics-driven projectile mechanics with arcade-style combat</p>
-          <div class="project-stack">
-          <div class="project-card">
-          <h3 class="project-name">PLANETARIUM</h3>
-          <p class="project-desc">A god-game built around the theme "Adaptation" - you take the role of a deity shaping civilisations, seeding life, and guiding species to survive changing conditions. Worship fuels your power, tying your survival to theirs. Inspired by the macro-scale of games like Spore and Universim.</p>
-          
+          <h3 class="project-name">Metal Wizard</h3>
+          <p class="project-desc">
+            A game jam entry built around the theme "Metal Wizard" — you play as a wizard
+            in a post-apocalyptic wasteland, using telekinesis to fling scrap metal at enemies.
+            Combines precise physics-driven projectile mechanics with arcade-style combat.
+          </p>
+
           <div class="project-stack">
             <span class="stack-tag">Godot 4</span>
             <span class="stack-tag">GDScript</span>
+            <span class="stack-tag">Physics</span>
             <span class="stack-tag">Game Jam</span>
           </div>
+
           <div class="project-links">
             <a href="#" class="project-link">▶ Play</a>
             <a href="#" class="project-link">⌥ Source</a>
           </div>
+
         </div>
+        <!-- END PROJECT: Metal Wizard -->
+
+
+        <!-- PROJECT: Planetarium -->
+        <div class="project-card">
+
+          <span class="project-type">Game Jam</span>
+          <h3 class="project-name">Planetarium</h3>
+          <p class="project-desc">
+            A god-game built around the theme "Adaptation" — you take the role of a deity
+            shaping civilisations, seeding life, and guiding species to survive changing
+            conditions. Worship fuels your power, tying your survival to theirs.
+            Inspired by the macro-scale of games like Spore and Universim.
+          </p>
+
+          <div class="project-stack">
+            <span class="stack-tag">Godot 4</span>
+            <span class="stack-tag">GDScript</span>
+            <span class="stack-tag">God Game</span>
+            <span class="stack-tag">Game Jam</span>
+          </div>
+
+          <div class="project-links">
+            <a href="#" class="project-link">▶ Play</a>
+            <a href="#" class="project-link">⌥ Source</a>
+          </div>
+
+        </div>
+        <!-- END PROJECT: Planetarium -->
+
 
       </div>
     </div>
   </section>
 
-  <!-- SKILLS -->
+
+  <!-- ============================================================
+       SKILLS
+       To add a skill: copy a .skill-item line and update the text.
+  ============================================================ -->
   <section class="section skills-section" id="skills">
     <div class="container">
+
       <span class="section-label">Toolkit</span>
       <h2 class="section-title">Skills</h2>
+
       <div class="skills-grid">
         <div class="skill-item"><span class="skill-dot"></span>Godot 4</div>
         <div class="skill-item"><span class="skill-dot"></span>GDScript</div>
@@ -654,68 +756,110 @@
         <div class="skill-item"><span class="skill-dot"></span>JavaScript</div>
         <div class="skill-item"><span class="skill-dot"></span>Python</div>
       </div>
+
     </div>
   </section>
 
-  <!-- ABOUT -->
+
+  <!-- ============================================================
+       ABOUT
+  ============================================================ -->
   <section class="section" id="about">
     <div class="container">
+
       <span class="section-label">About</span>
       <h2 class="section-title">Who I am</h2>
+
       <div class="about-grid">
+
         <div class="about-text">
-          <p>I'm a games developer focused on the mechanics layer - movement systems, physics fidelity, and the feel of a game before anything else. Currently studying Games Development (Level 3) at Leeds City College.</p>
-          <p>I've shipped projects solo and through game jams: a full FPS built to replicate Quake Live's movement, a technically precise CS:S movement controller in Godot 4, and a modular weapon system. I care about making things that are actually good to play.</p>
-          <p>Outside of dev I fence at Harrogate Fencing Club. I'm a native speaker of Portuguese and English, and speak some French.</p>
+          <p>
+            I'm a games developer focused on the mechanics layer — movement systems,
+            physics fidelity, and the feel of a game before anything else. Currently
+            studying Games Development (Level 3) at Leeds City College.
+          </p>
+          <p>
+            I've shipped projects solo and through game jams: a full FPS built to replicate
+            Quake Live's movement, a technically precise CS:S movement controller in Godot 4,
+            and a modular weapon system. I care about making things that are actually good to play.
+          </p>
+          <p>
+          Outside of development, I fence at Harrogate Fencing Club. 
+          I also shoot photos, and care a lot about fashion and how put together I look.
+          I'm a native speaker of Portuguese and English, and speak some French.
+          </p>
         </div>
+
         <div class="about-stats">
+
           <div class="stat-card">
             <div class="stat-number">1+</div>
             <div class="stat-label">Solo games shipped</div>
           </div>
+
           <div class="stat-card">
             <div class="stat-number">YKS</div>
             <div class="stat-label">Based in Yorkshire, England</div>
           </div>
+
           <div class="stat-card">
             <div class="stat-number">2</div>
             <div class="stat-label">Native languages</div>
           </div>
+
           <div class="stat-card">
             <div class="stat-number">G4</div>
             <div class="stat-label">Primary engine: Godot 4</div>
           </div>
+
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
+
+  <!-- ============================================================
+       CONTACT
+  ============================================================ -->
   <section class="section contact-section" id="contact">
     <div class="container">
+
       <span class="section-label">Contact</span>
       <h2 class="section-title">Let's talk</h2>
-      <p class="contact-sub">Open to placements, collabs, and interesting projects. Particularly drawn to roles around game feel, movement systems, and FPS design.</p>
+
+      <p class="contact-sub">
+        Open to placements, collabs, and interesting projects.
+        Particularly drawn to roles around game feel, movement systems, and FPS design.
+      </p>
+
       <div class="contact-links">
-        <a href="mailto:felipe@francodacostacom" class="btn btn-primary">Email me</a>
+        <a href="mailto:felipe@francodacosta.com" class="btn btn-primary">Email me</a>
         <a href="https://github.com/Felipe-builds" class="btn btn-outline" target="_blank" rel="noopener">GitHub</a>
       </div>
+
     </div>
   </section>
 
-  <!-- FOOTER -->
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
   <footer>
     <div class="container">
       <p>© 2026 Felipe Costa — felipebuilds.dev</p>
     </div>
   </footer>
 
-  <script>
-    const toggle  = document.getElementById('themeToggle');
-    const html    = document.documentElement;
 
-    // Default dark; respect saved preference
-    const saved   = localStorage.getItem('fc-theme') || 'dark';
+  <!-- ============================================================
+       THEME TOGGLE SCRIPT
+  ============================================================ -->
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const html   = document.documentElement;
+
+    const saved  = localStorage.getItem('fc-theme') || 'dark';
     html.setAttribute('data-theme', saved);
     toggle.textContent = saved === 'dark' ? '☀️' : '🌙';
 
@@ -726,6 +870,7 @@
       localStorage.setItem('fc-theme', next);
     });
   </script>
+
 
 </body>
 </html>
