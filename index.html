@@ -279,6 +279,7 @@
       letter-spacing: 0.01em;
     }
 
+    /* Orange — Email */
     .btn-primary {
       background: var(--accent);
       color: #fff;
@@ -290,6 +291,37 @@
       box-shadow: 0 6px 24px rgba(249, 115, 22, 0.28);
     }
 
+    /* Blue — LinkedIn */
+    .btn-linkedin {
+      background: #0A66C2;
+      color: #fff;
+    }
+
+    .btn-linkedin:hover {
+      background: #0958a8;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(10, 102, 194, 0.35);
+    }
+
+    /* Ghost — GitHub */
+    .btn-github {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-github:hover {
+      transform: translateY(-2px);
+      border-color: var(--text);
+      box-shadow: 0 0 16px rgba(226, 232, 240, 0.15);
+    }
+
+    [data-theme="light"] .btn-github:hover {
+      border-color: #0B0F14;
+      box-shadow: 0 0 16px rgba(11, 15, 20, 0.12);
+    }
+
+    /* Generic outline — kept for any future use */
     .btn-outline {
       background: transparent;
       color: var(--text);
@@ -611,7 +643,7 @@
 
   <!-- ============================================================
        PROJECTS
-       To add a new card: copy one full .project-card block,
+       To add a new card: copy one full project-card block,
        paste it after the last one, and update the content.
   ============================================================ -->
   <section class="section" id="projects">
@@ -736,7 +768,7 @@
 
   <!-- ============================================================
        SKILLS
-       To add a skill: copy a .skill-item line and update the text.
+       To add a skill: copy a skill-item line and update the text.
   ============================================================ -->
   <section class="section skills-section" id="skills">
     <div class="container">
@@ -784,9 +816,9 @@
             and a modular weapon system. I care about making things that are actually good to play.
           </p>
           <p>
-          Outside of development, I fence at Harrogate Fencing Club. 
-          I also shoot photos, and care a lot about fashion and how put together I look.
-          I'm a native speaker of Portuguese and English, and speak some French.
+            Outside of dev, I fence at Harrogate Fencing Club, shoot photos, and care a lot
+            about fashion and how I put looks together. I'm a native speaker of Portuguese
+            and English, and speak some French.
           </p>
         </div>
 
@@ -835,7 +867,8 @@
 
       <div class="contact-links">
         <a href="mailto:felipe@francodacosta.com" class="btn btn-primary">Email me</a>
-        <a href="https://github.com/Felipe-builds" class="btn btn-outline" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/felipe-franco-da-costa-ab75b3418/" class="btn btn-linkedin" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/Felipe-builds" class="btn btn-github" target="_blank" rel="noopener">GitHub</a>
       </div>
 
     </div>
@@ -874,3 +907,5 @@
 
 </body>
 </html>
+
+Done
