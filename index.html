@@ -97,6 +97,7 @@
       align-items: center;
       justify-content: space-between;
       height: 64px;
+      gap: 0.75rem;
     }
 
     .nav-logo {
@@ -105,6 +106,7 @@
       font-size: 1.05rem;
       color: var(--text);
       letter-spacing: -0.02em;
+      flex-shrink: 0;
     }
 
     .nav-logo span { color: var(--accent); }
@@ -113,6 +115,7 @@
       display: flex;
       align-items: center;
       gap: 2rem;
+      min-width: 0;
     }
 
     .nav-links {
@@ -120,13 +123,19 @@
       align-items: center;
       gap: 1.75rem;
       list-style: none;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
+
+    .nav-links::-webkit-scrollbar { display: none; }
 
     .nav-links a {
       font-size: 0.875rem;
       font-weight: 500;
       color: var(--text-2);
       transition: color 0.2s;
+      white-space: nowrap;
     }
 
     .nav-links a:hover { color: var(--text); }
@@ -420,6 +429,11 @@
 
     .project-link:hover { color: var(--accent); }
 
+    .projects-more {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
 
     /* SKILLS */
     .skills-section {
@@ -544,14 +558,21 @@
     }
 
 
-    /* RESPONSIVE */
+    /* RESPONSIVE — nav-links now stay visible at every width instead of
+       vanishing below 768px. They shrink and can scroll horizontally
+       if the screen is too narrow to fit everything on one line. */
     @media (max-width: 768px) {
-      .nav-links { display: none; }
+      .nav-links { gap: 1.1rem; }
+      .nav-links a { font-size: 0.8rem; }
+      .nav-right { gap: 1rem; }
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
       .section { padding: 4rem 0; }
     }
 
     @media (max-width: 480px) {
+      .nav-logo { font-size: 0.92rem; }
+      .nav-links { gap: 0.8rem; }
+      .nav-links a { font-size: 0.75rem; }
       .about-stats { grid-template-columns: 1fr 1fr; }
     }
 
@@ -573,11 +594,11 @@
   <nav>
     <div class="container nav-inner">
 
-      <a href="#" class="nav-logo">Felipe<span>.</span>dev</a>
+      <a href="index.html" class="nav-logo">Felipe<span>.</span>dev</a>
 
       <div class="nav-right">
         <ul class="nav-links">
-          <li><a href="#projects">Projects</a></li>
+          <li><a href="projects.html">Projects</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -605,7 +626,7 @@
       </p>
 
       <div class="hero-ctas">
-        <a href="#projects" class="btn btn-primary">See my work</a>
+        <a href="projects.html" class="btn btn-primary">See my work</a>
         <a href="#contact"  class="btn btn-outline">Get in touch</a>
       </div>
 
@@ -613,7 +634,7 @@
   </section>
 
 
-  <!-- PROJECTS -->
+  <!-- PROJECTS (teaser — full list lives on projects.html) -->
   <section class="section" id="projects">
     <div class="container">
 
@@ -641,7 +662,7 @@
           </div>
 
           <div class="project-links">
-            <a href="#" class="project-link">▶ Play</a>
+            <a href="projects.html" class="project-link">▶ Details</a>
             <a href="https://github.com/Felipe-builds" class="project-link" target="_blank" rel="noopener">⌥ Source</a>
           </div>
 
@@ -667,6 +688,7 @@
           </div>
 
           <div class="project-links">
+            <a href="projects.html" class="project-link">▶ Details</a>
             <a href="https://github.com/Felipe-builds" class="project-link" target="_blank" rel="noopener">⌥ Source</a>
           </div>
 
@@ -693,7 +715,7 @@
           </div>
 
           <div class="project-links">
-            <a href="#" class="project-link">▶ Play</a>
+            <a href="projects.html" class="project-link">▶ Details</a>
             <a href="#" class="project-link">⌥ Source</a>
           </div>
 
@@ -721,7 +743,7 @@
           </div>
 
           <div class="project-links">
-            <a href="#" class="project-link">▶ Play</a>
+            <a href="projects.html" class="project-link">▶ Details</a>
             <a href="#" class="project-link">⌥ Source</a>
           </div>
 
@@ -730,6 +752,11 @@
 
 
       </div>
+
+      <div class="projects-more">
+        <a href="projects.html" class="btn btn-outline">View all projects →</a>
+      </div>
+
     </div>
   </section>
 
