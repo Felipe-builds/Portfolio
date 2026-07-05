@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Localisation — Felipe Costa</title>
+  <title>Localisation - Felipe Costa</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
 
-    /* DESIGN TOKENS — identical to index.html / projects.html */
+    /* DESIGN TOKENS - identical to index.html / projects.html */
     :root {
       --bg:        #0B0F14;
       --surface:   #131820;
@@ -86,7 +86,7 @@
     }
 
 
-    /* NAV — identical markup/behaviour to index.html and projects.html */
+    /* NAV - identical markup/behaviour to index.html and projects.html */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -395,7 +395,7 @@
     .translation-card:focus-visible .translation-card-footer { color: var(--accent); }
 
 
-    /* MODAL — same pattern as projects.html */
+    /* MODAL - same pattern as projects.html */
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -667,7 +667,7 @@
       <h1 class="section-title">Localisation</h1>
       <p class="page-sub">
         Bilingual in Portuguese and English, with working French. I localise game
-        text with a developer's eye — I know how strings get pulled into engines,
+        text with a developer's eye - I know how strings get pulled into engines,
         where character limits bite, and how tone needs to survive the jump between
         languages, not just the words.
       </p>
@@ -706,14 +706,14 @@
   </section>
 
 
-  <!-- SAMPLE WORK — now interactive -->
+  <!-- SAMPLE WORK - now interactive -->
   <section class="section">
     <div class="container">
       <span class="section-label">Sample Work</span>
       <h2 class="section-title">Translation Breakdown</h2>
       <p class="section-sub">
         A set of in-game strings localised from English into Portuguese. Click any
-        one for the full reasoning — what changed, what I considered and rejected,
+        one for the full reasoning - what changed, what I considered and rejected,
         and why.
       </p>
 
@@ -781,7 +781,7 @@
       <h2 class="section-title">Open to localisation work</h2>
       <p class="section-sub">
         Looking for freelance localisation, junior LQA (localisation QA testing),
-        or in-house junior roles I can do alongside college. Happy to start small —
+        or in-house junior roles I can do alongside college. Happy to start small -
         a single string table or a QA pass on an existing localisation is a great
         way for us to see if it's a fit.
       </p>
@@ -798,7 +798,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <p>© 2026 Felipe Costa — felipebuilds.dev</p>
+      <p>© 2026 Felipe Costa - felipebuilds.dev</p>
     </div>
   </footer>
 
@@ -807,7 +807,7 @@
 
     /* ============================================================
        TRANSLATION DATA
-       Add/edit entries here — one object per card. Grid + modal both
+       Add/edit entries here - one object per card. Grid + modal both
        render from this array.
     ============================================================ */
     const TRANSLATIONS = [
@@ -817,10 +817,10 @@
         sourceText: "New Best Time!",
         targetLang: "PT",
         targetText: "Novo Recorde!",
-        explanation: "A literal translation would read \"Novo Melhor Tempo!\" — technically correct, but not how Portuguese-speaking players actually talk about leaderboards. \"Recorde\" (record) is the word the gaming community already uses, so the localised line matches existing vocabulary instead of sounding translated.",
+        explanation: "A literal translation would read \"Novo Melhor Tempo!\" - technically correct, but not how Portuguese-speaking players actually talk about leaderboards. \"Recorde\" (record) is the word the gaming community already uses, so the localised line matches existing vocabulary instead of sounding translated.",
         considered: [
-          { label: "Novo Melhor Tempo!", note: "Literal word-for-word translation. Grammatically fine but reads stiffly — nobody says this in-game." },
-          { label: "Recorde Batido!", note: "\"Record broken!\" — punchier, but shifts the tense/framing slightly from the source's \"new\" emphasis. Kept as a backup option if character space were tighter." }
+          { label: "Novo Melhor Tempo!", note: "Literal word-for-word translation. Grammatically fine but reads stiffly - nobody says this in-game." },
+          { label: "Recorde Batido!", note: "\"Record broken!\" - punchier, but shifts the tense/framing slightly from the source's \"new\" emphasis. Kept as a backup option if character space were tighter." }
         ]
       },
       {
@@ -832,7 +832,7 @@
         explanation: "Button glyphs like [E] map to a physical key, not a word, so they're never translated. The verb choice matters more here: \"apanhar\" is the natural European Portuguese verb for picking something up off the ground, while \"pegar\" (used in Brazilian Portuguese) would read as the wrong regional dialect for a PT-PT localisation.",
         considered: [
           { label: "Pressiona [E] para pegar a arma", note: "Correct for Brazilian Portuguese (pt-BR), wrong register for a European Portuguese (pt-PT) build. Region matters here." },
-          { label: "Prima [E] para apanhar a arma", note: "\"Prima\" is more formal/older-fashioned than \"pressiona\" — good fit for a serious military sim, too stiff for an arcade shooter." }
+          { label: "Prima [E] para apanhar a arma", note: "\"Prima\" is more formal/older-fashioned than \"pressiona\" - good fit for a serious military sim, too stiff for an arcade shooter." }
         ]
       },
       {
@@ -841,7 +841,7 @@
         sourceText: "You died. Respawning in 3...",
         targetLang: "PT",
         targetText: "Morreste. A reaparecer em 3...",
-        explanation: "The English line is blunt and matter-of-fact — no drama, just a status update, which fits fast-paced arcade shooters. \"Morreste\" keeps that same flat tone rather than softening it, and \"a reaparecer\" (reappearing) reads more naturally in-context than a stiffer construction like \"reaparecerás.\"",
+        explanation: "The English line is blunt and matter-of-fact - no drama, just a status update, which fits fast-paced arcade shooters. \"Morreste\" keeps that same flat tone rather than softening it, and \"a reaparecer\" (reappearing) reads more naturally in-context than a stiffer construction like \"reaparecerás.\"",
         considered: [
           { label: "Morreste. Vais reaparecer em 3...", note: "Grammatically correct future tense, but noticeably more formal/wordy for what should be a quick HUD flash." }
         ]
@@ -852,10 +852,10 @@
         sourceText: "Are you sure you want to quit?",
         targetLang: "PT",
         targetText: "Sair do jogo?",
-        explanation: "The literal translation (\"Tens a certeza que queres sair?\") runs noticeably longer than the English and would overflow a lot of confirmation-dialog buttons sized for the source text. Dropping to \"Sair do jogo?\" (Quit game?) keeps the same intent — confirm before quitting — in a fraction of the space, which matters when you don't control the UI's text box width.",
+        explanation: "The literal translation (\"Tens a certeza que queres sair?\") runs noticeably longer than the English and would overflow a lot of confirmation-dialog buttons sized for the source text. Dropping to \"Sair do jogo?\" (Quit game?) keeps the same intent - confirm before quitting - in a fraction of the space, which matters when you don't control the UI's text box width.",
         considered: [
-          { label: "Tens a certeza que queres sair?", note: "Full literal translation. Accurate but roughly 40% longer — risky for fixed-width buttons without testing first." },
-          { label: "Confirmar saída?", note: "Shorter still, but reads more like a system dialog than a game prompt — lost some of the casual tone." }
+          { label: "Tens a certeza que queres sair?", note: "Full literal translation. Accurate but roughly 40% longer - risky for fixed-width buttons without testing first." },
+          { label: "Confirmar saída?", note: "Shorter still, but reads more like a system dialog than a game prompt - lost some of the casual tone." }
         ]
       },
       {
@@ -864,10 +864,10 @@
         sourceText: "Nice shot, hotshot.",
         targetLang: "PT",
         targetText: "Bom tiro, campeão.",
-        explanation: "\"Hotshot\" has no direct Portuguese equivalent — a literal attempt would be nonsensical. \"Campeão\" (champion) is the closest natural way Portuguese speakers use a light, slightly teasing compliment in casual contexts, preserving the playful sarcasm of the original instead of the literal words.",
+        explanation: "\"Hotshot\" has no direct Portuguese equivalent - a literal attempt would be nonsensical. \"Campeão\" (champion) is the closest natural way Portuguese speakers use a light, slightly teasing compliment in casual contexts, preserving the playful sarcasm of the original instead of the literal words.",
         considered: [
-          { label: "Bom tiro, atirador de elite", note: "\"Elite shooter\" — too literal and too serious in tone; loses the teasing, casual delivery of \"hotshot.\"" },
-          { label: "Bom tiro, craque", note: "\"Craque\" (ace/star) works too and is arguably more common in Portugal — kept as a strong alternate, could A/B test with native players." }
+          { label: "Bom tiro, atirador de elite", note: "\"Elite shooter\" - too literal and too serious in tone; loses the teasing, casual delivery of \"hotshot.\"" },
+          { label: "Bom tiro, craque", note: "\"Craque\" (ace/star) works too and is arguably more common in Portugal - kept as a strong alternate, could A/B test with native players." }
         ]
       }
     ];
