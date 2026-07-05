@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects — Felipe Costa</title>
+  <title>Projects - Felipe Costa</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
 
-    /* DESIGN TOKENS — kept identical to index.html so both pages stay in sync */
+    /* DESIGN TOKENS - kept identical to index.html so both pages stay in sync */
     :root {
       --bg:        #0B0F14;
       --surface:   #131820;
@@ -76,7 +76,7 @@
     }
 
 
-    /* NAV — identical markup/behaviour to index.html */
+    /* NAV - identical markup/behaviour to index.html */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -405,7 +405,7 @@
       margin-bottom: 1.75rem;
     }
 
-    /* Demo embed slot — swap the placeholder inner content for a real
+    /* Demo embed slot - swap the placeholder inner content for a real
        <iframe src="your-build/index.html"> or itch.io embed */
     .modal-demo {
       background: var(--bg);
@@ -446,7 +446,7 @@
       flex-wrap: wrap;
     }
 
-    /* Source viewer — collapsed code panel toggled from the modal */
+    /* Source viewer - collapsed code panel toggled from the modal */
     .modal-source {
       margin-top: 1.5rem;
       border-top: 1px solid var(--border);
@@ -572,7 +572,7 @@
       </div>
 
       <div class="modal-source" id="modalSource">
-        <p class="modal-source-note" id="modalSourceNote">Sample snippet — swap this for a real file from the repo.</p>
+        <p class="modal-source-note" id="modalSourceNote">Sample snippet - swap this for a real file from the repo.</p>
         <pre id="modalSourceCode"></pre>
       </div>
 
@@ -583,7 +583,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <p>© 2026 Felipe Costa — felipebuilds.dev</p>
+      <p>© 2026 Felipe Costa - felipebuilds.dev</p>
     </div>
   </footer>
 
@@ -592,7 +592,7 @@
 
     /* ============================================================
        PROJECT DATA
-       Add/edit projects here — one object per card. Everything on
+       Add/edit projects here - one object per card. Everything on
        the page (grid + modal) is generated from this array.
     ============================================================ */
     const PROJECTS = [
@@ -600,7 +600,7 @@
         type: "Solo · FPS",
         name: "Quake Live Remake",
         shortDesc: "A from-scratch single-player FPS built to replicate Quake Live's movement and feel.",
-        fullDesc: "A from-scratch single-player FPS in Godot 4 built to replicate the movement and feel of Quake Live — including bunny hopping, strafe-jumping, and surf ramp physics. Focused entirely on making the mechanics layer feel authentic before adding any content on top.",
+        fullDesc: "A from-scratch single-player FPS in Godot 4 built to replicate the movement and feel of Quake Live - including bunny hopping, strafe-jumping, and surf ramp physics. Focused entirely on making the mechanics layer feel authentic before adding any content on top.",
         stack: ["Godot 4", "GDScript", "Physics Systems", "FPS Design"],
         playUrl: "#",
         sourceUrl: "https://github.com/Felipe-builds",
@@ -617,7 +617,7 @@
         type: "System · Movement",
         name: "CS:S Movement Controller",
         shortDesc: "A technically precise recreation of Counter-Strike: Source movement in Godot 4.",
-        fullDesc: "A technically precise recreation of Counter-Strike: Source movement in Godot 4 — wishdir acceleration, air-strafing, bunny hopping, and full surf ramp physics using MOTION_MODE_FLOATING with manual surface classification via collision normals.",
+        fullDesc: "A technically precise recreation of Counter-Strike: Source movement in Godot 4 - wishdir acceleration, air-strafing, bunny hopping, and full surf ramp physics using MOTION_MODE_FLOATING with manual surface classification via collision normals.",
         stack: ["Godot 4", "GDScript", "Physics", "Movement Tech"],
         playUrl: "#",
         sourceUrl: "https://github.com/Felipe-builds",
@@ -631,7 +631,7 @@ func classify_surface(normal: Vector3) -> void:
         type: "Game Jam",
         name: "Metal Wizard",
         shortDesc: "Telekinesis-flinging wizard combat in a post-apocalyptic wasteland.",
-        fullDesc: "A game jam entry built around the theme \"Metal Wizard\" — you play as a wizard in a post-apocalyptic wasteland, using telekinesis to fling scrap metal at enemies. Combines precise physics-driven projectile mechanics with arcade-style combat.",
+        fullDesc: "A game jam entry built around the theme \"Metal Wizard\" - you play as a wizard in a post-apocalyptic wasteland, using telekinesis to fling scrap metal at enemies. Combines precise physics-driven projectile mechanics with arcade-style combat.",
         stack: ["Godot 4", "GDScript", "Physics", "Game Jam"],
         playUrl: "#",
         sourceUrl: "#",
@@ -644,7 +644,7 @@ func classify_surface(normal: Vector3) -> void:
         type: "Game Jam",
         name: "Planetarium",
         shortDesc: "A god-game about shaping civilisations under the theme \"Adaptation\".",
-        fullDesc: "A god-game built around the theme \"Adaptation\" — you take the role of a deity shaping civilisations, seeding life, and guiding species to survive changing conditions. Worship fuels your power, tying your survival to theirs. Inspired by the macro-scale of games like Spore and Universim.",
+        fullDesc: "A god-game built around the theme \"Adaptation\" - you take the role of a deity shaping civilisations, seeding life, and guiding species to survive changing conditions. Worship fuels your power, tying your survival to theirs. Inspired by the macro-scale of games like Spore and Universim.",
         stack: ["Godot 4", "GDScript", "God Game", "Game Jam"],
         playUrl: "#",
         sourceUrl: "#",
@@ -714,7 +714,7 @@ func classify_surface(normal: Vector3) -> void:
       modalPlayBtn.href    = project.playUrl;
       modalSourceLink.href = project.sourceUrl;
 
-      modalSourceNote.textContent = `Sample from ${project.name} — swap this for a real file pulled from the repo.`;
+      modalSourceNote.textContent = `Sample from ${project.name} - swap this for a real file pulled from the repo.`;
       modalSourceCode.textContent = project.codeSnippet;
       modalSource.classList.remove('open');
       modalSourceToggle.textContent = '{ } Peek at code';
@@ -748,7 +748,7 @@ func classify_surface(normal: Vector3) -> void:
 
 
     /* ============================================================
-       THEME TOGGLE — same localStorage key as index.html so the
+       THEME TOGGLE - same localStorage key as index.html so the
        choice stays in sync across pages
     ============================================================ */
     const toggle = document.getElementById('themeToggle');
