@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects - Felipe Costa</title>
+  <meta name="description" content="Games projects by Felipe Costa - a from-scratch Quake Live movement remake, a CS:S-style movement controller, and game jam entries built in Godot 4." />
+  <meta property="og:title" content="Projects - Felipe Costa" />
+  <meta property="og:description" content="A from-scratch Quake Live movement remake, a CS:S-style movement controller, and game jam entries built in Godot 4." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0B0F14" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -38,6 +44,10 @@
 
     html { scroll-behavior: smooth; }
 
+    /* Safety net: nothing on the page should ever force a horizontal
+       scrollbar, regardless of viewport width */
+    html, body { max-width: 100%; overflow-x: hidden; }
+
     body {
       background-color: var(--bg);
       color: var(--text);
@@ -53,7 +63,9 @@
     .container {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 0 1.5rem;
+      /* Fluid side padding: scales smoothly between phone and desktop
+         instead of jumping at fixed breakpoints */
+      padding: 0 clamp(1.1rem, 4vw, 1.5rem);
     }
 
     .section-label {
@@ -76,7 +88,9 @@
     }
 
 
-    /* NAV - identical markup/behaviour to index.html */
+    /* NAV - identical markup/behaviour to index.html and localisation.html:
+       nav-links stay visible at every width (shrink + scroll instead of
+       disappearing on mobile) */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -93,6 +107,7 @@
       align-items: center;
       justify-content: space-between;
       height: 64px;
+      gap: 0.75rem;
     }
 
     .nav-logo {
@@ -101,6 +116,7 @@
       font-size: 1.05rem;
       color: var(--text);
       letter-spacing: -0.02em;
+      flex-shrink: 0;
     }
 
     .nav-logo span { color: var(--accent); }
@@ -109,6 +125,7 @@
       display: flex;
       align-items: center;
       gap: 2rem;
+      min-width: 0;
     }
 
     .nav-links {
@@ -116,13 +133,19 @@
       align-items: center;
       gap: 1.75rem;
       list-style: none;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
+
+    .nav-links::-webkit-scrollbar { display: none; }
 
     .nav-links a {
       font-size: 0.875rem;
       font-weight: 500;
       color: var(--text-2);
       transition: color 0.2s;
+      white-space: nowrap;
     }
 
     .nav-links a:hover { color: var(--text); }
@@ -153,7 +176,7 @@
 
     /* PAGE HEADER */
     .page-header {
-      padding: 8.5rem 0 3rem;
+      padding: clamp(6.5rem, 14vw, 8.5rem) 0 3rem;
     }
 
     .page-sub {
@@ -165,7 +188,7 @@
 
 
     /* PROJECT GRID */
-    .projects-section { padding-bottom: 6rem; }
+    .projects-section { padding-bottom: clamp(3.5rem, 8vw, 6rem); }
 
     .projects-grid {
       display: grid;
@@ -276,6 +299,7 @@
     .btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 0.4rem;
       font-family: 'DM Sans', sans-serif;
       font-size: 0.875rem;
@@ -310,6 +334,18 @@
       border-color: var(--accent);
       color: var(--accent);
       transform: translateY(-2px);
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .btn:disabled,
+    .btn.is-disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      pointer-events: none;
     }
 
 
@@ -489,10 +525,24 @@
     }
 
 
-    /* RESPONSIVE */
+    /* RESPONSIVE
+       Same breakpoint pattern as index.html / localisation.html so all
+       three pages behave identically on phones and tablets.
+    */
     @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .page-header { padding-top: 7rem; }
+      .nav-links { gap: 1.1rem; }
+      .nav-links a { font-size: 0.8rem; }
+      .nav-right { gap: 1rem; }
+      .projects-grid { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+    }
+
+    @media (max-width: 480px) {
+      .nav-logo { font-size: 0.92rem; }
+      .nav-links { gap: 0.8rem; }
+      .nav-links a { font-size: 0.75rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .modal { padding: 1.5rem; }
+      .modal-actions .btn { flex: 1 1 auto; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -512,6 +562,7 @@
       <div class="nav-right">
         <ul class="nav-links">
           <li><a href="projects.html" class="active">Projects</a></li>
+          <li><a href="localisation.html">Localisation</a></li>
           <li><a href="index.html#skills">Skills</a></li>
           <li><a href="index.html#about">About</a></li>
           <li><a href="index.html#contact">Contact</a></li>
@@ -594,6 +645,10 @@
        PROJECT DATA
        Add/edit projects here - one object per card. Everything on
        the page (grid + modal) is generated from this array.
+
+       playUrl / sourceUrl: use "#" as a placeholder when there is
+       nothing to link to yet - the modal automatically hides that
+       button instead of linking to a dead "#" href.
     ============================================================ */
     const PROJECTS = [
       {
@@ -711,8 +766,21 @@ func classify_surface(normal: Vector3) -> void:
         .map(tag => `<span class="stack-tag">${tag}</span>`)
         .join('');
 
-      modalPlayBtn.href    = project.playUrl;
-      modalSourceLink.href = project.sourceUrl;
+      // Hide "Play demo" / "View on GitHub" when there's nothing real to
+      // link to yet, instead of pointing them at a dead "#" href.
+      if (project.playUrl && project.playUrl !== '#') {
+        modalPlayBtn.href = project.playUrl;
+        modalPlayBtn.style.display = '';
+      } else {
+        modalPlayBtn.style.display = 'none';
+      }
+
+      if (project.sourceUrl && project.sourceUrl !== '#') {
+        modalSourceLink.href = project.sourceUrl;
+        modalSourceLink.style.display = '';
+      } else {
+        modalSourceLink.style.display = 'none';
+      }
 
       modalSourceNote.textContent = `Sample from ${project.name} - swap this for a real file pulled from the repo.`;
       modalSourceCode.textContent = project.codeSnippet;
