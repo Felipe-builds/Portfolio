@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Localisation - Felipe Costa</title>
+  <meta name="description" content="Portuguese/English game localisation by Felipe Costa - string tables, character-limit-aware translation, and tone matching for game UI text." />
+  <meta property="og:title" content="Localisation - Felipe Costa" />
+  <meta property="og:description" content="Portuguese/English game localisation - string tables, character-limit-aware translation, and tone matching for game UI text." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0B0F14" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -38,6 +44,10 @@
 
     html { scroll-behavior: smooth; }
 
+    /* Safety net: nothing on the page should ever force a horizontal
+       scrollbar, regardless of viewport width */
+    html, body { max-width: 100%; overflow-x: hidden; }
+
     body {
       background-color: var(--bg);
       color: var(--text);
@@ -53,10 +63,12 @@
     .container {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 0 1.5rem;
+      /* Fluid side padding: scales smoothly between phone and desktop
+         instead of jumping at fixed breakpoints */
+      padding: 0 clamp(1.1rem, 4vw, 1.5rem);
     }
 
-    .section { padding: 5rem 0; }
+    .section { padding: clamp(3rem, 8vw, 6rem) 0; }
 
     .section-label {
       font-family: 'DM Mono', monospace;
@@ -171,7 +183,7 @@
 
 
     /* PAGE HEADER */
-    .page-header { padding: 8.5rem 0 1rem; }
+    .page-header { padding: clamp(6.5rem, 14vw, 8.5rem) 0 1rem; }
 
     .page-sub {
       color: var(--text-2);
@@ -185,6 +197,7 @@
     .btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 0.4rem;
       font-family: 'DM Sans', sans-serif;
       font-size: 0.875rem;
@@ -247,6 +260,11 @@
       border-color: var(--accent);
       color: var(--accent);
       transform: translateY(-2px);
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
     }
 
 
@@ -619,16 +637,20 @@
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
-      .nav-links { gap: 1.1rem; overflow-x: auto; scrollbar-width: none; }
-      .nav-links a { font-size: 0.8rem; white-space: nowrap; }
+      .nav-links { gap: 1.1rem; }
+      .nav-links a { font-size: 0.8rem; }
       .nav-right { gap: 1rem; }
-      .page-header { padding-top: 7rem; }
     }
 
     @media (max-width: 480px) {
       .nav-logo { font-size: 0.92rem; }
       .nav-links { gap: 0.8rem; }
       .nav-links a { font-size: 0.75rem; }
+      .lang-grid { grid-template-columns: 1fr; }
+      .translation-grid { grid-template-columns: 1fr; }
+      .toolkit-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+      .modal { padding: 1.5rem; }
+      .contact-links .btn { flex: 1 1 auto; }
     }
 
     @media (prefers-reduced-motion: reduce) {
