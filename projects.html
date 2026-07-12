@@ -3,6 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Set the theme before first paint: a previously chosen theme wins,
+       otherwise fall back to the visitor's OS-level preference instead
+       of always forcing dark. Runs inline/early to avoid a flash of the
+       wrong theme on load. -->
+  <script>
+    (function () {
+      var stored = localStorage.getItem('fc-theme');
+      var theme = stored || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
   <title>Projects - Felipe Costa</title>
   <meta name="description" content="Games projects by Felipe Costa - a from-scratch Quake Live movement remake, a CS:S-style movement controller, and game jam entries built in Godot 4." />
   <meta property="og:title" content="Projects - Felipe Costa" />
@@ -822,9 +833,8 @@ func classify_surface(normal: Vector3) -> void:
     const toggle = document.getElementById('themeToggle');
     const html   = document.documentElement;
 
-    const saved  = localStorage.getItem('fc-theme') || 'dark';
-    html.setAttribute('data-theme', saved);
-    toggle.textContent = saved === 'dark' ? '☀️' : '🌙';
+    // Theme is already set by the early head script - just sync the icon.
+    toggle.textContent = html.getAttribute('data-theme') === 'dark' ? '☀️' : '🌙';
 
     toggle.addEventListener('click', () => {
       const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
